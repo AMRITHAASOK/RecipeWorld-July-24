@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+*{
+    font-family: "Roboto Mono", serif;
+    padding: 0;
+    margin: 0;
+}
+h1{
+    font-family: "Edu AU VIC WA NT Pre", serif;
+}
