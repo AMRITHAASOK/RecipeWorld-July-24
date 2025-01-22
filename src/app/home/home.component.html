@@ -23,12 +23,14 @@
                 <button class="btn color" routerLink="/allRecipes" >View Recipes <i class="fa-solid fa-wand-magic-sparkles "></i></button>
             </div>
             <div class="row mt-5">
-                <div class="col">
-                    <div class="card shadow w-25 p-5">
-                        <img class="landingImg" src="https://www.pngall.com/wp-content/uploads/8/Food-Recipe-PNG-Free-Download.png" alt="" width="100%">
-                    <h3 class="color text-center">Recipe Name</h3>
+                @for (item of recipeList; track $index) {
+                    <div class="col-4 mb-5">
+                        <div class="card shadow p-5">
+                            <img class="landingImg" [src]="item.image" alt="" width="100%">
+                      
+                        </div>
                     </div>
-                </div>
+                }
             </div>
         </div>
     </div>
