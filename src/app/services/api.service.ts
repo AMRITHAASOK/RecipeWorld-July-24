@@ -15,5 +15,10 @@ export class ApiService {
   return this.http.get(`${this.server_url}/allRecipes`)
   }
 
+   //add Testimony API - http://localhost:3000/addTestimony
+   addTestimonyAPI(reqBody:any){
+    return this.http.post(`${this.server_url}/addTestimony`,reqBody)
+    }
+
   
 }

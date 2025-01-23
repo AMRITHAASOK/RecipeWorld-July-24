@@ -26,9 +26,9 @@
             </ul>
         </div>
         <div class="col-6">
-            <div class="card rounded border p-5 shadow">
+            <form [formGroup]="testimonyForm" class="card rounded border p-5 shadow">
                 <h2>Client Testimony</h2>
-                <input type="text" placeholder="Name" class="form-control mb-3 mt-4" name="" id="">
+                <input type="text" formControlName="name"  placeholder="Name" class="form-control mb-3 mt-4" name="" id="">
                 <input type="text" placeholder="Email" class="form-control mb-3">
                 <textarea name="" id="" class="form-control mb-3" placeholder="Message"></textarea>
                <span> <input type="checkbox" name="" id=""> 
@@ -37,7 +37,7 @@
                 <div class="text-center mt-4">
                     <button class="btn btn-success">Submit</button>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>

@@ -1,5 +1,8 @@
 <div class="container mt-5">
+<h6 style="float: right;">Today's Date :  {{today | date:'short'}}</h6>
+   <br><br>
     <div class="row">
+       
         <div class="col-4">
             <h3>Filters</h3>
         </div>
@@ -7,7 +10,7 @@
             <h2>All Recipes</h2>
         </div>
         <div class="col-4">
-            <input type="text" placeholder="Search Your Recipe here" class="form-control">
+            <input [(ngModel)]="searchKey" type="text" placeholder="Search Your Recipe here" class="form-control">
         </div>
     </div>
 
@@ -28,12 +31,21 @@
                   </div>
                
                 <br>
-                <button class="btn">Meal Type</button>
+                <button class="btn" data-bs-toggle="collapse" data-bs-target="#collapseExample1" aria-expanded="false" aria-controls="collapseExample1">Meal Type</button>
+                <div class="collapse" id="collapseExample1">
+                    <div class="row ">
+                        @for (item of updateMealArray; track $index) {
+                           <div class="col">   
+                            <button (click)="filterRecipe('mealType',item)" class="btn">{{item}}</button>
+                           </div>
+                        }
+                    </div>
+                  </div>
                </div>
         </div>
         <div class="col-8">
             <div class="row mt-5">
-                @for (item of recipeList; track $index) {
+                @for (item of recipeList | search:searchKey ; track $index) {
                     <div class="col-3 m-3">
                         <div class="card shadow">
                             <img [src]="item.image" width="100%" alt="">
