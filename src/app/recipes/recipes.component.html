@@ -47,7 +47,7 @@
             <div class="row mt-5">
                 @for (item of recipeList | search:searchKey ; track $index) {
                     <div class="col-3 m-3">
-                        <div class="card shadow">
+                        <div class="card shadow" (click)="viewRecipe(item._id)">
                             <img [src]="item.image" width="100%" alt="">
                             <div class="text-center">
                                 <h5>{{item.name}}</h5>

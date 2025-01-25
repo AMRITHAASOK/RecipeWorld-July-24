@@ -3,10 +3,11 @@ import { ApiService } from '../services/api.service';
 import { DatePipe } from '@angular/common';
 import { SearchPipe } from '../pipes/search.pipe';
 import {FormsModule } from '@angular/forms'
+import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-recipes',
   standalone: true,
-  imports: [DatePipe,SearchPipe,FormsModule],
+  imports: [DatePipe,SearchPipe,FormsModule,RouterLink],
   templateUrl: './recipes.component.html',
   styleUrl: './recipes.component.css'
 })
@@ -19,7 +20,7 @@ export class RecipesComponent implements OnInit{
     newMealArray:any=[]//hold all measls details into single array
     updateMealArray:any=[]//meals array with out duplications
     dummyRecipeList:any=[] 
-    constructor(private api :ApiService){}
+    constructor(private api :ApiService,private route:Router){}
 
     today=new Date()
     searchKey:string=""//to hold search value from input box
@@ -66,5 +67,14 @@ export class RecipesComponent implements OnInit{
           )
           console.log(this.recipeList);
           
+      }
+
+      viewRecipe(id:any){
+          if(sessionStorage.getItem("token")){
+            this.route.navigateByUrl(`viewRecipe/${id}`)
+          }
+          else{
+            alert("Please login")
+          }
       }
 }
