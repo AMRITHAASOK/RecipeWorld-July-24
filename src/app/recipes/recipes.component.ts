@@ -4,10 +4,11 @@ import { DatePipe } from '@angular/common';
 import { SearchPipe } from '../pipes/search.pipe';
 import {FormsModule } from '@angular/forms'
 import { Router, RouterLink } from '@angular/router';
+import {NgxPaginationModule} from 'ngx-pagination';
 @Component({
   selector: 'app-recipes',
   standalone: true,
-  imports: [DatePipe,SearchPipe,FormsModule,RouterLink],
+  imports: [DatePipe,SearchPipe,FormsModule,RouterLink,NgxPaginationModule],
   templateUrl: './recipes.component.html',
   styleUrl: './recipes.component.css'
 })
@@ -20,6 +21,7 @@ export class RecipesComponent implements OnInit{
     newMealArray:any=[]//hold all measls details into single array
     updateMealArray:any=[]//meals array with out duplications
     dummyRecipeList:any=[] 
+    p: number = 1;
     constructor(private api :ApiService,private route:Router){}
 
     today=new Date()

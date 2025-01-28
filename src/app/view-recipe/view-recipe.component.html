@@ -112,6 +112,19 @@
         </div>
     </div>
     <div class="row">
-        <h3>Related Recipes</h3>
+        @if(relatedRecipeArray.length>0){
+          <h3>Related Recipes</h3>
+        <div class="row">
+          @for (item of relatedRecipeArray; track $index) {
+            <div class="col my-3">
+              <div class="card shadow p-3" style="width: 250px; height: 300px;">
+                <img [src]="item.image" alt="" width="100%">
+                <h6 class="text-center mt-3">{{item.name}}</h6>
+              </div>
+            </div>
+          }
+        </div>
+        } 
+       
     </div>
 </div>

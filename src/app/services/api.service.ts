@@ -44,4 +44,9 @@ export class ApiService {
     return this.http.get(`${this.server_url}/getARecipe/${id}`,this.appendToken())
   }
 
+   //GET A RECIPES API -http://localhost:3000/relatedRecipe?cuisine=Pakistani
+   getRelatedRecipeAPI(cuisine:any) {
+    return this.http.get(`${this.server_url}/relatedRecipe?cuisine=${cuisine}`,this.appendToken())
+  }
+
 }

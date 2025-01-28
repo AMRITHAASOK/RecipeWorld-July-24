@@ -13,7 +13,7 @@ export class ViewRecipeComponent implements OnInit{
 
   recipeId:any=""
   recipe:any={}//to hold particular recipe
-
+  relatedRecipeArray:any=[]
   constructor(private ar: ActivatedRoute,private api:ApiService){}
   
   ngOnInit(): void {
@@ -22,18 +22,34 @@ export class ViewRecipeComponent implements OnInit{
         this.recipeId=res.id
         console.log(this.recipeId);
         this.viewARecipe()
+      
       })
   }
 
   viewARecipe(){
     this.api.getARecipeAPI(this.recipeId).subscribe({
       next:(res:any)=>{
-        console.log(res); //{}
+        console.log(res); //{} Chicken Karahi
         this.recipe=res
+        this.relatedRecipe(res.cuisine)
       },
       error:(err:any)=>{
         console.log(err);
         
+      }
+    })
+  }
+
+  relatedRecipe(cuisine:any){
+    this.api.getRelatedRecipeAPI(cuisine).subscribe({
+      next:(res:any)=>{
+        console.log(res); //{} 6 array 
+        this.relatedRecipeArray=res.filter((item:any)=>item.name!=this.recipe.name)
+        console.log(this.relatedRecipeArray);// 5 {}
+        
+      },
+      error:(err:any)=>{
+        console.log(err);
       }
     })
   }
