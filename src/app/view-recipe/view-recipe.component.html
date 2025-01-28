@@ -10,7 +10,7 @@
             <img [src]="recipe.image" width="100%" alt="">
 <div class="d-flex justify-content-between">
                 <!-- From Uiverse.io by vinodjangid07 --> 
-<button class="bookmarkBtn mt-3 p-1">
+<button (click)="savedRecipe()" class="bookmarkBtn mt-3 p-1">
     <span class="IconContainer">
       <svg viewBox="0 0 384 512" height="0.9em" class="icon">
         <path
@@ -22,7 +22,7 @@
   </button>
   
     <!-- From Uiverse.io by barisdogansutcu --> 
-<button class="download-button mt-3">
+<button (click)="toDownload()" class="download-button mt-3">
     <div class="docs">
       <svg
         viewBox="0 0 24 24"

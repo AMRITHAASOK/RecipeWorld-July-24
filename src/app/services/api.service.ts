@@ -44,9 +44,27 @@ export class ApiService {
     return this.http.get(`${this.server_url}/getARecipe/${id}`,this.appendToken())
   }
 
-   //GET A RECIPES API -http://localhost:3000/relatedRecipe?cuisine=Pakistani
+   //GET RELATED RECIPES API -http://localhost:3000/relatedRecipe?cuisine=Pakistani
    getRelatedRecipeAPI(cuisine:any) {
     return this.http.get(`${this.server_url}/relatedRecipe?cuisine=${cuisine}`,this.appendToken())
   }
 
+  //DOWNLOAD PDF - http://localhost:3000/addToDownload/12
+   addTODownload(id:any,reqBody: any) {
+    return this.http.post(`${this.server_url}/addToDownload/${id}`, reqBody,this.appendToken())
+  }
+
+  //Add to save - http://localhost:3000/addToSave/12
+  addTOSave(id:any,reqBody: any) {
+    return this.http.post(`${this.server_url}/addToSave/${id}`, reqBody,this.appendToken())
+  }
+   //Add to save - http://localhost:3000/getSavedRecipe
+ getSavedRecipeAPI() {
+  return this.http.get(`${this.server_url}/getSavedRecipe`, this.appendToken())
+}
+
+   //delete to save - http://localhost:3000/getSavedRecipe
+  deleteSavedRecipeAPI(id:any) {
+    return this.http.delete(`${this.server_url}/deleteSavedRecipe/${id}`, this.appendToken())
+  }
 }
