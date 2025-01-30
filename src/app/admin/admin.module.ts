@@ -9,7 +9,9 @@ import { RequestListComponent } from './request-list/request-list.component';
 import { RecepiListComponent } from './recepi-list/recepi-list.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { ManageRecipeComponent } from './manage-recipe/manage-recipe.component';
-
+import {NgxPaginationModule} from 'ngx-pagination'; // <-- import the module
+import { FormsModule } from '@angular/forms';
+import { SearchPipe } from '../pipes/search.pipe';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,10 @@ import { ManageRecipeComponent } from './manage-recipe/manage-recipe.component';
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule
+    AdminRoutingModule,
+    NgxPaginationModule,
+    FormsModule,
+    SearchPipe
   ]
 })
 export class AdminModule { }

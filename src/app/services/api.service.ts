@@ -67,4 +67,20 @@ export class ApiService {
   deleteSavedRecipeAPI(id:any) {
     return this.http.delete(`${this.server_url}/deleteSavedRecipe/${id}`, this.appendToken())
   }
+
+   //GET ALL RECIPES API - http://localhost:3000/allDownloadList
+   getAllDownloadListAPI() {
+    return this.http.get(`${this.server_url}/allDownloadList`)
+  }
+
+  
+   //GET ALL RECIPES API - http://localhost:3000/allDownloadList
+   getAllUserListAPI() {
+    return this.http.get(`${this.server_url}/allUserList`)
+  }
+ //GET ALL RECIPES API - http://localhost:3000/allDownloadList
+ getAllTestimonyListAPI() {
+  return this.http.get(`${this.server_url}/allTestimonies`)
+}
+
 }
