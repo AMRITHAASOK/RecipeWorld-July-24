@@ -1,0 +1,30 @@
+.side{
+    width: 300px;
+    min-height: 100vh;
+    background-color: rgb(223, 84, 4);
+    color: bisque;
+}
+.admin{
+    background-color: bisque;
+    color: rgb(223, 84, 4) ;
+}
+li{
+    margin-right: 25px;
+    margin-top: 20px;
+    border: 1px solid;
+    padding: 20px;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 3px 5px 6px wheat ;
+    transition: 3s ease-in-out;
+    
+}
+li:hover{
+    box-shadow: none;
+    border: none;
+    transition: 2s ease-out;
+}
+li a{
+    color: bisque;
+    text-decoration: none;
+}

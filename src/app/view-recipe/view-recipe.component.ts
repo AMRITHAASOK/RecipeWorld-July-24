@@ -3,11 +3,13 @@ import { ActivatedRoute } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import jsPDF from 'jspdf'
 import autoTable from 'jspdf-autotable'
+import { HeaderComponent } from '../header/header.component';
+import { FooterComponent } from '../footer/footer.component';
 
 @Component({
   selector: 'app-view-recipe',
   standalone: true,
-  imports: [],
+  imports: [HeaderComponent,FooterComponent],
   templateUrl: './view-recipe.component.html',
   styleUrl: './view-recipe.component.css'
 })

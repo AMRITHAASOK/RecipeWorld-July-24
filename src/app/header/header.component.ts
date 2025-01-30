@@ -15,13 +15,9 @@ export class HeaderComponent implements OnInit {
   loggedUserName:string=""
 
   ngOnInit(): void {
-      this.getDetails()
-  }
-  
-  getDetails(){
     if(sessionStorage.getItem("token")){
       this.isLoggedIn=true
-      this.loggedUser=JSON.parse(sessionStorage.getItem("User") || " ")//object 
+      this.loggedUser=JSON.parse(sessionStorage.getItem("User") || " ").username//object 
       console.log(this.loggedUser);//{}
       this.loggedUserName=this.loggedUser.username
       // console.log(this.loggedUsername);
@@ -32,5 +28,9 @@ export class HeaderComponent implements OnInit {
       this.loggedUserName=""
     }
   }
+  
+  // getDetails(){
+    
+  // }
 
 }

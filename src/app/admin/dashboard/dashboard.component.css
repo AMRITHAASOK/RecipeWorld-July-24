@@ -1,0 +1,16 @@
+.nav{
+    background-color: bisque;
+    color: rgb(223, 84, 4) ;
+}
+span{
+    color: rgb(223, 84, 4) ;
+}
+.card{
+    background-color: rgb(223, 84, 4);
+    color: bisque;
+    margin: 20px;
+}
+p{
+    font-weight: 800;
+    font-size: large;
+}
