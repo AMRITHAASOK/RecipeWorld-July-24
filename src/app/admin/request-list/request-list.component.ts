@@ -12,6 +12,7 @@ export class RequestListComponent implements OnInit{
     constructor(private api:ApiService){}
   ngOnInit(): void {
     this.getAllTestimonies()
+    
   }
 
     getAllTestimonies(){
@@ -19,6 +20,7 @@ export class RequestListComponent implements OnInit{
         next:(res:any)=>{
           console.log(res);
           this.testimonies=res
+          // this.updateStatus(res._id,res.status)
         },
         error:(err:any)=>{
           console.log(err);
@@ -28,6 +30,15 @@ export class RequestListComponent implements OnInit{
     }
 
     updateStatus(id:any,status:string){
-      
+      this.api.getApprovedTestimonyListAPI(id,status).subscribe({
+        next:(res:any)=>{
+          console.log(res);
+          this.getAllTestimonies()
+        },
+        error:(err:any)=>{
+          console.log(err);
+          
+        }
+      })
     }
 }

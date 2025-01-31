@@ -29,9 +29,15 @@
                             <td>{{item.message}}</td>
                             <td>
                                   @if (item.status=='Pending') {
-                                    <button class="btn btn-success">Approve</button>
-                                    <button class="btn btn-danger">Rejected</button>
+                                    <button (click)="updateStatus(item._id,'Approved')" class="btn btn-success">Approve</button>
+                                    <button (click)="updateStatus(item._id,'Rejected')" class="btn btn-danger">Rejected</button>
 
+                                }
+                                @else if (item.status=='Approved') {
+                                    <button class="btn btn-success">Approve</button>
+                                }
+                                @else {
+                                    <button class="btn btn-danger">Rejected</button>
                                 }
                             </td>
                           </tr>
