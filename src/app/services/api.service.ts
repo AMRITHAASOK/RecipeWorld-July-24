@@ -87,4 +87,10 @@ export class ApiService {
   return this.http.get(`${this.server_url}/updateTestimony/${id}?status=${status}`)
 }
 
+
+  //GET ALL RECIPES API - http://localhost:3000/allRecipes
+  AddRecipeAPI(reqBody:any) {
+    return this.http.post(`${this.server_url}/addRecipe`,reqBody)
+  }
+
 }

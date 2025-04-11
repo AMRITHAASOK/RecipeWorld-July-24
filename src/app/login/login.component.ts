@@ -30,11 +30,18 @@ export class LoginComponent {
         this.api.loginAPI({email,password}).subscribe({
           next:(res:any)=>{
             console.log(res);
+           if(res.role=="User"){
             alert("Login Successful")
             sessionStorage.setItem("User",JSON.stringify(res.
               existingUser))
               sessionStorage.setItem("token",res.token)
               this.route.navigateByUrl('/')
+           }
+           else{
+            alert("Login Successful")
+          
+              this.route.navigateByUrl('/admin')
+           }
           },
           error:(err:any)=>{
             console.log(err);

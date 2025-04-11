@@ -2,7 +2,91 @@
     <div class="col-3">
         <app-sidebar></app-sidebar>
     </div>
-    <div class="col-9">
-       manage
+    <div class="col-9 p-5">
+        @if (id) {
+            <h2 class="text-center ">Edit Recipe Details</h2>
+
+        }
+        @else{
+            <h2 class="text-center ">Add Recipe Details</h2>
+
+        }
+    <div class="row shadow rounded p-5">
+       
+        <div class="col-6 mt-4">
+            <input type="text" [(ngModel)]="recipeDetails.name" class="form-control mb-3" placeholder="Recipe Name" >
+            <input type="text" [(ngModel)]="recipeDetails.prepTimeMinutes" class="form-control mb-3" placeholder="Preparation Time" >
+            <label for="cuisine">Choose Cuisine Type</label>
+            <select [(ngModel)]="recipeDetails.cuisine" name="cuisine" id="cuisine" class="form-control mb-3">
+                <option value="" hidden selected>Choose</option>
+               @for (item of cuisineType; track $index) {
+                <option [value]="item">{{item}}</option>
+               }
+
+            </select>
+            <input [(ngModel)]="recipeDetails.image" type="text" class="form-control mb-3" placeholder="Recipe image url" >
+           <div class="d-flex ">
+            <textarea #Ingredients [(ngModel)]="recipeDetails.ingredients" name="" id="" class="form-control me-5" placeholder="Ingredients">
+            </textarea>
+            <button (click)="addIngredients(Ingredients)" class="btn btn-success" >+</button>
+           
+        </div>
+        @for (item of IngredientsArray; track $index) {
+            <div class="d-flex justify-content-between border rounded align-items-center my-3 px-3">
+                <p>{{item}}</p>
+                <i (click)="deleteIngredient(item)" class="fa-solid fa-trash text-danger"></i>
+            </div>
+           }
+        </div>
+        <div class="col-6 mt-4">
+            <input type="text" [(ngModel)]="recipeDetails.cookTimeMinutes" class="form-control mb-3" placeholder="Cooking Time" >
+            <input type="text" [(ngModel)]="recipeDetails.servings" class="form-control mb-3" placeholder="Recipe servings" >
+            <label for="difficulty">Mode of cooking</label>
+            <select [(ngModel)]="recipeDetails.difficulty" name="difficulty" id="difficulty" class="form-control mb-3">
+                <option value="" hidden selected>Choose</option>
+                <option value="Easy">Easy</option>
+                <option value="Medium">Medium</option>
+                <option value="Hard">Hard</option>
+
+            </select>
+            <input type="text" [(ngModel)]="recipeDetails.caloriesPerServing" class="form-control mb-3" placeholder="Calories" >
+           <div class="d-flex ">
+            <textarea #instruction [(ngModel)]="recipeDetails.instructions" name="" id="" class="form-control me-5" placeholder="Instructions">
+            </textarea>
+            <button (click)="addInstruction(instruction)" class="btn btn-success">+</button>
+           </div>
+           @for (item of InstructionArray; track $index) {
+            <div class="d-flex justify-content-between border rounded align-items-center my-3 px-3">
+                <p>{{item}}</p>
+                <i (click)="deleteInstruction(item)" class="fa-solid fa-trash text-danger"></i>
+            </div>
+           }
+        </div>
+
+        <div class="border rounded p-3 mt-4">
+            <label  for="meal" class="text-center">Choose Meal Type : @for (item of MealArray; track $index) {
+                {{item}} ,
+            }</label>
+           <br><br>
+            @for (item of updateMealArray; track $index) {
+                <input (change)="selectMeal($event)" type="checkbox" [name]="item"  id="meal" class="ms-3" > <label for="">{{item}}</label>
+
+            }
+           </div>
+           @if (id) {
+            <div class="text-center my-5">
+                <button (click)="editRecipe()" class="btn btn-success">Edit Recipe</button>
+            </div>
+
+        }
+        @else{
+            <div class="text-center my-5">
+                <button (click)="addRecipe()" class="btn btn-success">Add Recipe</button>
+            </div>
+
+        }
+        
+       
+    </div>
     </div>
 </div>

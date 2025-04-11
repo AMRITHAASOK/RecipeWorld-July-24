@@ -6,7 +6,7 @@
         <h2 class="text-center mt-5">All Recipe List</h2>
         <div class="row my-4 pe-5 mt-5">
             <div class="col">
-                <button class="btn ">Add Recipe</button>
+                <button class="btn " routerLink="/admin/addRecipe">Add Recipe</button>
             </div>
             <div class="col">
                 <input [(ngModel)]="searchKey" type="text" class="form-control" placeholder="Search a Recipe">
@@ -32,7 +32,7 @@
                             <td>{{item.cuisine}}</td>
                             <td>
                                 <div class="d-flex justify-content-evenly">
-                                        <i class="fa-solid fa-pen text-primary fs-5"></i>
+                                        <i routerLink="/admin/editRecipe/{{item._id}}" class="fa-solid fa-pen text-primary fs-5"></i>
                                         <i class="fa-solid fa-trash text-danger fs-5"></i>
                                 </div>
                             </td>
